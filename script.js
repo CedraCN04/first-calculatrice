@@ -1,4 +1,4 @@
-let operationChoice = prompt(
+/* let operationChoice = prompt(
   "Choisissez une opération : 1 - Addition, 2 - Soustraction, 3 - Multiplication, 4- Division"
 );
 
@@ -48,4 +48,5 @@ switch (operationChoice) {
   default:
     alert("Choix d'opération invalide. Veuillez réessayer.");
 }
+ */
 
