@@ -1,52 +1,110 @@
-/* let operationChoice = prompt(
-  "Choisissez une opération : 1 - Addition, 2 - Soustraction, 3 - Multiplication, 4- Division"
-);
+// Variables globales
+let firstValue = "";
+let secondValue = "";
+let operator = null;
+let isSecondValue = false;
 
-function askUser() {
-  let firstNumber = Number(prompt("Entrez le premier nombre :"));
-  let secondNumber = Number(prompt("Entrez le deuxième nombre :"));
-  return [firstNumber, secondNumber];
+// Ajout d'une valeur par défaut
+function defaultValue() {
+  let defaultValue = 0;
+
+  let screenResult = document.getElementById("result");
+  screenResult.textContent = defaultValue;
+  screenResult.style.color = "grey";
 }
 
-function addition(firstNumber, secondNumber) {
-  let result = firstNumber + secondNumber;
-  alert("Le résultat de l'addition est : " + result);
+defaultValue();
+
+// Fonction pour effacer les données et revenir à la valeur par défaut
+function clear() {
+  let clearButton = document.getElementById("clear");
+  clearButton.addEventListener("click", () => {
+    defaultValue();
+  });
+}
+clear();
+
+// Fonction pour supprimer le dernier caractère
+function back() {
+  let backButton = document.getElementById("return");
+  backButton.addEventListener("click", () => {
+    let screenResult = document.getElementById("result");
+    screenResult.textContent = screenResult.textContent.slice(0, -1);
+    if (screenResult.textContent === "") {
+      defaultValue();
+    }
+  });
 }
 
-function soustraction(firstNumber, secondNumber) {
-  let result = firstNumber - secondNumber;
-  alert("Le résultat de la soustraction est : " + result);
-}
+back();
 
-function multiplication(firstNumber, secondNumber) {
-  let result = firstNumber * secondNumber;
-  alert("Le résultat de la multiplication est : " + result);
+// Fonction pour récupérer tous les boutons "number"
+function numbers() {
+  let numbers = document.querySelectorAll(".number");
+  numbers.forEach((number) => {
+    number.addEventListener("click", () => {
+      let screenResult = document.getElementById("result");
+      if (screenResult.textContent === "0") {
+        screenResult.textContent = number.textContent;
+      } else {
+        screenResult.textContent += number.textContent;
+      }
+      screenResult.style.color = "black";
+      if (!isSecondValue) {
+        firstValue += number.textContent;
+      } else {
+        secondValue += number.textContent;
+      }
+    });
+  });
 }
+numbers();
 
-function division(firstNumber, secondNumber) {
-  let result = firstNumber / secondNumber;
-  alert("Le résultat de la division est : " + result);
+// Fonction pour récupérer tous les boutons "operator"
+function operators() {
+  let operators = document.querySelectorAll(".operator");
+  operators.forEach((operatorButton) => {
+    operatorButton.addEventListener("click", () => {
+      let screenResult = document.getElementById("result");
+      screenResult.textContent += operatorButton.textContent;
+      operator = operatorButton.textContent;
+      screenResult.style.color = "black";
+      isSecondValue = true;
+    });
+  });
 }
+operators();
 
-switch (operationChoice) {
-  case "1":
-    let addNumbers = askUser();
-    addition(addNumbers[0], addNumbers[1]);
-    break;
-  case "2":
-    let substractNumbers = askUser();
-    soustraction(substractNumbers[0], substractNumbers[1]);
-    break;
-  case "3":
-    let multiplyNumbers = askUser();
-    multiplication(multiplyNumbers[0], multiplyNumbers[1]);
-    break;
-  case "4":
-    let divideNumbers = askUser();
-    division(divideNumbers[0], divideNumbers[1]);
-    break;
-  default:
-    alert("Choix d'opération invalide. Veuillez réessayer.");
+// Fonction de calcul
+function calculate() {
+  let screenResult = document.getElementById("result");
+  let equalButton = document.getElementById("equal");
+  equalButton.addEventListener("click", () => {
+    switch (operator) {
+      case "+":
+        screenResult.textContent =
+          parseFloat(firstValue) + parseFloat(secondValue);
+        break;
+      case "-":
+        screenResult.textContent =
+          parseFloat(firstValue) - parseFloat(secondValue);
+        break;
+      case "*":
+        screenResult.textContent =
+          parseFloat(firstValue) * parseFloat(secondValue);
+        break;
+      case "/":
+        screenResult.textContent =
+          parseFloat(firstValue) / parseFloat(secondValue);
+        break;
+      default:
+        break;
+    }
+    firstValue = screenResult.textContent;
+    secondValue = "";
+    isSecondValue = false;
+    screenResult.style.color = "green";
+  });
 }
- */
+calculate();
 

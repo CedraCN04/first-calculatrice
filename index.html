@@ -4,33 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" type="image/svg" href="assets/favicon.svg" />
     <title>Calculatrice</title>
   </head>
   <body>
     <main class="container">
       <section class="calculator">
-        <input type="text" id="input" class="input" placeholder="0" />
+        <div class="screen" id="screen">
+          <p class="result" id="result"></p>
+        </div>
         <div class="buttons">
-          <button id="clear" class="operator">AC</button>
-          <button id="add-or-substract" class="operator">+/-</button>
-          <button id="percent" class="operator">%</button>
-          <button id="multiply" class="operator">X</button>
+          <button id="clear" class="clear">AC</button>
+          <button id="add-or-substract" class="add-or-substract">+/-</button>
+          <button id="percent" class="percent">%</button>
+          <button id="multiply" class="operator" data-op="*">*</button>
           <button id="seven" class="number">7</button>
           <button id="eight" class="number">8</button>
           <button id="nine" class="number">9</button>
-          <button id="divide" class="operator">÷</button>
+          <button id="divide" class="operator" data-op="/">/</button>
           <button id="four" class="number">4</button>
           <button id="five" class="number">5</button>
           <button id="six" class="number">6</button>
-          <button id="add" class="operator">+</button>
+          <button id="add" class="operator" data-op="+">+</button>
           <button id="one" class="number">1</button>
           <button id="two" class="number">2</button>
           <button id="three" class="number">3</button>
-          <button id="substract" class="operator">-</button>
+          <button id="substract" class="operator" data-op="-">-</button>
           <button id="decimal" class="number">.</button>
           <button id="zero" class="number">0</button>
-          <button id="return" class="operator"><=</button>
-          <button id="equals" class="operator">=</button>
+          <button id="return" class="return"><</button>
+          <button id="equal" class="equal">=</button>
         </div>
       </section>
     </main>
