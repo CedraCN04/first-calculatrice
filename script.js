@@ -1,52 +1,28 @@
-/* let operationChoice = prompt(
-  "Choisissez une opération : 1 - Addition, 2 - Soustraction, 3 - Multiplication, 4- Division"
-);
+// Ajout d'une valeur par défaut
+function defaultValue() {
+  let defaultValue = 0;
 
-function askUser() {
-  let firstNumber = Number(prompt("Entrez le premier nombre :"));
-  let secondNumber = Number(prompt("Entrez le deuxième nombre :"));
-  return [firstNumber, secondNumber];
+  let screenResult = document.getElementById("result");
+  screenResult.textContent = defaultValue;
+  screenResult.style.color = "grey";
 }
 
-function addition(firstNumber, secondNumber) {
-  let result = firstNumber + secondNumber;
-  alert("Le résultat de l'addition est : " + result);
+defaultValue();
+
+// Ajout d'une fonction pour effacer les données et revenir à la valeur par défaut
+function clear() {
+  let clearButton = document.getElementById("clear");
+  clearButton.addEventListener("click", () => {
+    defaultValue();
+  });
 }
 
-function soustraction(firstNumber, secondNumber) {
-  let result = firstNumber - secondNumber;
-  alert("Le résultat de la soustraction est : " + result);
+// Ajout d'une fonction pour supprimer le dernier caractère
+function back() {
+  let backButton = document.getElementById("return");
+  backButton.addEventListener(click, () => {
+    let screenResult = document.getElementById("result");
+    screenResult.textContent = screenResult.textContent.slice(0, -1);
+  });
 }
-
-function multiplication(firstNumber, secondNumber) {
-  let result = firstNumber * secondNumber;
-  alert("Le résultat de la multiplication est : " + result);
-}
-
-function division(firstNumber, secondNumber) {
-  let result = firstNumber / secondNumber;
-  alert("Le résultat de la division est : " + result);
-}
-
-switch (operationChoice) {
-  case "1":
-    let addNumbers = askUser();
-    addition(addNumbers[0], addNumbers[1]);
-    break;
-  case "2":
-    let substractNumbers = askUser();
-    soustraction(substractNumbers[0], substractNumbers[1]);
-    break;
-  case "3":
-    let multiplyNumbers = askUser();
-    multiplication(multiplyNumbers[0], multiplyNumbers[1]);
-    break;
-  case "4":
-    let divideNumbers = askUser();
-    division(divideNumbers[0], divideNumbers[1]);
-    break;
-  default:
-    alert("Choix d'opération invalide. Veuillez réessayer.");
-}
- */
 
