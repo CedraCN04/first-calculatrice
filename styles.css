@@ -7,18 +7,6 @@ body {
   height: 100dvh;
 }
 
-/* Header */
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  background-color: lightgrey;
-  margin: 0 auto;
-  width: 100%;
-}
-
 /* Container */
 
 .container {
@@ -79,19 +67,6 @@ header {
 .operator:hover,
 .number:hover {
   background-color: white;
-}
-
-/* Footer */
-
-footer {
-  height: 100px;
-  background-color: lightgrey;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  width: 100%;
 }
 
 /* Responsive */
