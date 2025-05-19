@@ -34,8 +34,28 @@ function back() {
   backButton.addEventListener("click", () => {
     let screenResult = document.getElementById("result");
     screenResult.textContent = screenResult.textContent.slice(0, -1);
+    screenResult.textContent.split(operator);
+    if (operator !== null && screenResult.textContent.includes(operator)) {
+      let [newFirstValue, newSecondValue] =
+        screenResult.textContent.split(operator);
+      firstValue = newFirstValue;
+      secondValue = newSecondValue;
+    } else {
+      firstValue = screenResult.textContent;
+      secondValue = "";
+      operator = null;
+      isSecondValue = false;
+    }
+    if (!screenResult.textContent.includes(operator)) {
+      operator = null;
+      isSecondValue = false;
+    }
     if (screenResult.textContent === "") {
       defaultValue();
+      firstValue = "";
+      secondValue = "";
+      operator = null;
+      isSecondValue = false;
     }
   });
 }
