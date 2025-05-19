@@ -20,6 +20,10 @@ function clear() {
   let clearButton = document.getElementById("clear");
   clearButton.addEventListener("click", () => {
     defaultValue();
+    firstValue = "";
+    secondValue = "";
+    operator = null;
+    isSecondValue = false;
   });
 }
 clear();
