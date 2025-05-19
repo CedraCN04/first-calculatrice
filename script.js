@@ -66,6 +66,7 @@ function operators() {
   operators.forEach((operatorButton) => {
     operatorButton.addEventListener("click", () => {
       let screenResult = document.getElementById("result");
+      if (operator !== null) return;
       screenResult.textContent += operatorButton.textContent;
       operator = operatorButton.textContent;
       screenResult.style.color = "black";
