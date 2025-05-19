@@ -34,7 +34,7 @@ function back() {
   backButton.addEventListener("click", () => {
     let screenResult = document.getElementById("result");
     screenResult.textContent = screenResult.textContent.slice(0, -1);
-    screenResult.textContent.split(operator);
+    // On sépare la chaine en deux pour vérirfier si l'opérateur est présent, si oui, on met a jour secondValue, sinon on passe secondValue à false pour mettre a jour firstValue.
     if (operator !== null && screenResult.textContent.includes(operator)) {
       let [newFirstValue, newSecondValue] =
         screenResult.textContent.split(operator);
@@ -46,10 +46,14 @@ function back() {
       operator = null;
       isSecondValue = false;
     }
+
+    // Si l'opérateur n'est pas présent on passe l'opérateur à null et isSecondValue à false
     if (!screenResult.textContent.includes(operator)) {
       operator = null;
       isSecondValue = false;
     }
+
+    // Si l'écran est vide alors on réinitialise tout à la valeur par défaut.
     if (screenResult.textContent === "") {
       defaultValue();
       firstValue = "";
