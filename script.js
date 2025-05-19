@@ -47,7 +47,6 @@ function back() {
       operator = null;
       isSecondValue = false;
     }
-
     // Si l'écran est vide alors on réinitialise tout à la valeur par défaut.
     if (screenResult.textContent === "") {
       defaultValue();
