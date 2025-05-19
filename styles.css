@@ -112,7 +112,12 @@ body {
     grid-gap: 10px;
   }
   .operator,
-  .number {
+  .number,
+  .equal,
+  .clear,
+  .return,
+  .percent,
+  .add-or-substract {
     font-size: 18px;
     padding: 18px;
     border-radius: 20px;
