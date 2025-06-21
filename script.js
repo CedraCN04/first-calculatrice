@@ -3,6 +3,7 @@ let firstValue = "";
 let secondValue = "";
 let operator = null;
 let isSecondValue = false;
+let isError = false;
 
 // Ajout d'une valeur par défaut
 function defaultValue() {
@@ -12,7 +13,6 @@ function defaultValue() {
   screenResult.textContent = defaultValue;
   screenResult.style.color = "grey";
 }
-
 defaultValue();
 
 // Fonction pour effacer les données et revenir à la valeur par défaut
@@ -24,6 +24,7 @@ function clear() {
     secondValue = "";
     operator = null;
     isSecondValue = false;
+    isError = false;
   });
 }
 clear();
@@ -57,7 +58,6 @@ function back() {
     }
   });
 }
-
 back();
 
 // Fonction pour récupérer tous les boutons "number"
@@ -65,6 +65,7 @@ function numbers() {
   let numbers = document.querySelectorAll(".number");
   numbers.forEach((number) => {
     number.addEventListener("click", () => {
+      if (isError) return; // Si une erreur est présente, on ne peut pas entrer de nombre
       let screenResult = document.getElementById("result");
       if (screenResult.textContent === "0") {
         screenResult.textContent = number.textContent;
@@ -136,11 +137,12 @@ function calculate() {
     if (screenResult.textContent !== "Error") {
       screenResult.style.color = "green";
     }
-    // Impossible d'entrer un opérateur après une erreur
+    // Impossible d'entrer un opérateur ou un nombre après une erreur
     if (screenResult.textContent === "Error") {
       isSecondValue = false;
       firstValue = "";
       secondValue = "";
+      isError = true;
       return;
     }
     // Réinitialisation des variables après le calcul
@@ -148,6 +150,7 @@ function calculate() {
     operator = null;
     secondValue = "";
     isSecondValue = false;
+    isError = false;
   });
 }
 calculate();
