@@ -121,17 +121,25 @@ function calculate() {
           parseFloat(firstValue) * parseFloat(secondValue);
         break;
       case "/":
-        screenResult.textContent =
-          parseFloat(firstValue) / parseFloat(secondValue);
+        if (firstValue === "0" || secondValue === "0") {
+          screenResult.textContent = "Error";
+          screenResult.style.color = "red";
+        } else {
+          screenResult.textContent =
+            parseFloat(firstValue) / parseFloat(secondValue);
+          screenResult.style.color = "green";
+        }
         break;
       default:
         break;
+    }
+    if (screenResult.textContent !== "Error") {
+      screenResult.style.color = "green";
     }
     firstValue = screenResult.textContent;
     operator = null;
     secondValue = "";
     isSecondValue = false;
-    screenResult.style.color = "green";
   });
 }
 calculate();
