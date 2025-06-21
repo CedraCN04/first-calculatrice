@@ -128,6 +128,7 @@ function calculate() {
         break;
     }
     firstValue = screenResult.textContent;
+    operator = null;
     secondValue = "";
     isSecondValue = false;
     screenResult.style.color = "green";
