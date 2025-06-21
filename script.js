@@ -136,6 +136,14 @@ function calculate() {
     if (screenResult.textContent !== "Error") {
       screenResult.style.color = "green";
     }
+    // Impossible d'entrer un opérateur après une erreur
+    if (screenResult.textContent === "Error") {
+      isSecondValue = false;
+      firstValue = "";
+      secondValue = "";
+      return;
+    }
+    // Réinitialisation des variables après le calcul
     firstValue = screenResult.textContent;
     operator = null;
     secondValue = "";
