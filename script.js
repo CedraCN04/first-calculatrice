@@ -77,6 +77,10 @@ function numbers() {
       } else {
         secondValue += number.textContent;
       }
+      // Si le nombre entré par l'utilisateur est supérieur à 10 alors on le limite à 10 chiffres.
+      if (screenResult.textContent.length > 10) {
+        screenResult.textContent = screenResult.textContent.slice(0, 10);
+      }
     });
   });
 }
