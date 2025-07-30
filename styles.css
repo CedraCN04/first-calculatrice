@@ -68,7 +68,8 @@ body {
 .clear,
 .return,
 .percent,
-.add-or-substract {
+.add-or-substract,
+.decimal {
   font-size: 50px;
   padding: 15px;
   cursor: pointer;
