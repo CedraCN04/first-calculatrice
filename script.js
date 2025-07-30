@@ -155,3 +155,21 @@ function calculate() {
 }
 calculate();
 
+// Fonction pour gérer le point décimal
+function decimalPoint() {
+  let decimal = document.getElementById("decimal");
+  decimal.addEventListener("click", () => {
+    let screenResult = document.getElementById("result");
+    if (isError) return; // Pas de point en cas d'erreur
+    if (!screenResult.textContent.includes(".")) {
+      screenResult.textContent += ".";
+      if (!isSecondValue) {
+        firstValue += ".";
+      } else {
+        secondValue += ".";
+      }
+    }
+    screenResult.style.color = "green";
+  });
+}
+
