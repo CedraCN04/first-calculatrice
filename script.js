@@ -161,7 +161,10 @@ function decimalPoint() {
   decimal.addEventListener("click", () => {
     let screenResult = document.getElementById("result");
     if (isError) return; // Pas de point en cas d'erreur
-    if (!screenResult.textContent.includes(".")) {
+
+    // Vérifier si le nombre actuellement en cours de saisie contient déjà un point
+    let currentValue = !isSecondValue ? firstValue : secondValue;
+    if (!currentValue.includes(".")) {
       screenResult.textContent += ".";
       if (!isSecondValue) {
         firstValue += ".";
@@ -169,7 +172,8 @@ function decimalPoint() {
         secondValue += ".";
       }
     }
-    screenResult.style.color = "green";
+    screenResult.style.color = "black";
   });
 }
+decimalPoint();
 
